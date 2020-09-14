@@ -33,19 +33,22 @@ var randomNouns = ["streetlamp", "potato", "teeth", "conclusion", "nephew", "tem
 // Expected output: ["Streetlamp", "Potato", "Teeth", "Conclusion", "Nephew", "Temperature", "Database"]
 //create a function that will loop through given array "randomNouns"
 
-//push into new array
-  // let newArray = []
 
-  // const capitalizer = (randomNouns) =>{ // }
-//think string
-
-function capitalizer(array){
-    const newArray = array.map((item)=>{
-        return item.charAt(0).toLocaleUpperCase() + item.slice(1)
-    })
-    return newArray
+const capitalizer = (array) => {
+    let capsWords = (array.map(currentWord => {
+        // first split each index of array
+        let arrayOfLetters = currentWord.split("")
+        // use .toUpperCase to make sure both lower case and upper case letters identified.
+        let capsFirstLetter = arrayOfLetters[0].toUpperCase()
+        // use .join to reassemble string
+        let restOfString = arrayOfLetters.slice(1).join("")
+        // create new variable that holds string
+        let completedWord = capsFirstLetter + restOfString
+        return completedWord
+    }))
+    //return the new array with all the completed words
+    return capsWords
 }
-
 // console.log(capitalizer(randomNouns))
 
 
